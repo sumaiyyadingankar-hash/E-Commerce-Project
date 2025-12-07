@@ -135,74 +135,78 @@
       </div>
     </section>
 
-    <section class="delivery-timeline">
-      <h2 class="section-title">Our Delivery Journey</h2>
+   
+  <h2 class="section-title">Our Delivery Journey</h2>
+<section class="zigzag-timeline">
+ 
 
-      <div class="timeline-line"></div>
+  <!-- Step 1 (Right) -->
+  <div class="zz-step right">
+    <div class="zz-number">1</div>
 
-      <!-- Step 1 -->
-      <div class="timeline-step left">
-        <img src="../assets/images/delivery-timeline/order-received.jpg" alt="Order Received" />
-        <div class="timeline-text">
-          <h3>Order Received</h3>
-          <p>Your order is confirmed and our team starts preparing it with love.
-            <br> From the moment you place your order,
-            your items begin a little journey —
-            picked with care, packed with love,
-            and delivered right to your doorstep.
-          </p>
-        </div>
+    <div class="zz-content">
+      <img src="../assets/images/delivery-timeline/order-received.jpg">
+      <div class="text">
+        <h3>Order Received</h3>
+        <p>Your order is confirmed and we start preparing it with care.</p>
       </div>
+    </div>
+  </div>
 
-      <!-- Step 2 -->
-      <div class="timeline-step right">
-        <img src="../assets/images/delivery-timeline/pickedFromStore.jpg" alt="Picked from Store" />
-        <div class="timeline-text">
-          <h3>Picked from Store</h3>
-          <p>Our delivery partner collects your product from the shop safely.
-            <br>Our partner selects it gently from the store,
-            making sure everything is just as you wished.
-          </p>
-        </div>
+  <!-- Step 2 (Left) -->
+  <div class="zz-step left">
+    <div class="zz-number">2</div>
+
+    <div class="zz-content">
+      <img src="../assets/images/delivery-timeline/pickedFromStore.jpg">
+      <div class="text">
+        <h3>Picked From Store</h3>
+        <p>We pick the perfect product and check it gently.</p>
       </div>
+    </div>
+  </div>
 
-      <!-- Step 3 -->
-      <div class="timeline-step left">
-        <img src="../assets/images/delivery-timeline/packingOrder.jpg" alt="Packing" />
-        <div class="timeline-text">
-          <h3>Packed with Care</h3>
-          <p>Your order is packed neatly and checked twice for quality.
-            <br>Neatly wrapped and checked twice,
-            your order is ready for a safe journey.
-          </p>
-        </div>
+  <!-- Step 3 (Right) -->
+  <div class="zz-step right">
+    <div class="zz-number">3</div>
+
+    <div class="zz-content">
+      <img src="../assets/images/delivery-timeline/packingOrder.jpg">
+      <div class="text">
+        <h3>Packed With Care</h3>
+        <p>Your order is wrapped safely for a smooth journey.</p>
       </div>
+    </div>
+  </div>
 
-      <!-- Step 4 -->
-      <div class="timeline-step right">
-        <img src="../assets/images/delivery-timeline/dispatchedTruck.jpg" alt="Out for Delivery" />
-        <div class="timeline-text">
-          <h3>Out for Delivery</h3>
-          <p>Your package begins its journey to your home.
-            <br>It rides towards you with care and promise,
-            bringing your chosen treasures closer every mile.
-          </p>
-        </div>
+  <!-- Step 4 (Left) -->
+  <div class="zz-step left">
+    <div class="zz-number">4</div>
+
+    <div class="zz-content">
+      <img src="../assets/images/delivery-timeline/dispatchedTruck.jpg">
+      <div class="text">
+        <h3>Out For Delivery</h3>
+        <p>Your package is on the way — almost there!</p>
       </div>
+    </div>
+  </div>
 
-      <!-- Step 5 -->
-      <div class="timeline-step left">
-        <img src="../assets/images/delivery-timeline/delivered.jpg" alt="Delivered" />
-        <div class="timeline-text">
-          <h3>Delivered to You</h3>
-          <p>Our partner hands over the package with a smile. Enjoy your product!
-            <br>A smile, a package, a happy moment,
-            finally arriving safely at your doorstep.
-          </p>
-        </div>
+  <!-- Step 5 (Right) -->
+  <div class="zz-step right">
+    <div class="zz-number">5</div>
+
+    <div class="zz-content">
+      <img src="../assets/images/delivery-timeline/delivered.jpg">
+      <div class="text">
+        <h3>Delivered</h3>
+        <p>Your happiness has arrived at your doorstep.</p>
       </div>
+    </div>
+  </div>
 
-    </section>
+</section>
+
 
 
   </main>
@@ -256,7 +260,26 @@
   <div id="toastBox"></div>
 
   <!-- Scripts -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll(".zz-step");
+
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  steps.forEach(s => obs.observe(s));
+});
+</script>
   <script src="../assets/js/script.js?v=1.0" type="module"></script>
 </body>
+
 
 </html>
